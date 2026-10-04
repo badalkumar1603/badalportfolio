@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Badal | Graphic Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#e9e8f2;--ink:#15131f;--mute:#5d5b70;--blue:#3b2bff;--coral:#ff5a36;--sun:#ffd23f;--card:#f8f7fc}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Instrument Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;overflow-x:hidden}
+h1,h2,h3,.big{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.03em;line-height:.98}
+a{color:inherit;text-decoration:none}
+svg{display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+#bar{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--blue),var(--coral));z-index:50}
+
+nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:40;display:flex;gap:2px;padding:6px;border-radius:50px;background:rgba(248,247,252,.82);backdrop-filter:blur(14px);border:1px solid rgba(21,19,31,.08);box-shadow:0 8px 30px rgba(21,19,31,.1)}
+nav a{padding:9px 14px;border-radius:40px;font-size:14px;font-weight:500}
+nav a:hover{background:var(--ink);color:#fff}
+nav a.cta{background:var(--blue);color:#fff}
+
+/* hero + floating icons */
+.hero{padding:120px 0 30px;position:relative;min-height:92vh}
+.orb{position:absolute;right:-90px;top:60px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle at 30% 30%,var(--coral),var(--blue) 70%);filter:blur(60px);opacity:.5;animation:orb 9s ease-in-out infinite}
+@keyframes orb{50%{transform:translate(-40px,40px) scale(1.1)}}
+.tag{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:30px;background:var(--card);font-size:13px;font-weight:500;position:relative}
+.tag i{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.2)}
+.hero h1{font-size:clamp(46px,13vw,150px);font-weight:800;margin:22px 0;position:relative}
+.hero h1 em{font-style:normal;color:var(--blue)}
+.hero p{max-width:460px;color:var(--mute);font-size:18px;position:relative}
+.btns{margin-top:28px;display:flex;gap:10px;flex-wrap:wrap;position:relative}
+.btn{padding:15px 28px;border-radius:50px;font-weight:500;background:var(--ink);color:#fff;transition:transform .2s}
+.btn:hover{transform:translateY(-3px)}
+.btn.o{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.fl{position:absolute;z-index:2;will-change:transform}
+.chip{width:58px;height:58px;border-radius:20px;display:grid;place-items:center;box-shadow:0 14px 30px rgba(21,19,31,.22);animation:bob 5s ease-in-out infinite}
+.chip svg{width:28px;height:28px}
+@keyframes bob{50%{transform:translateY(-16px) rotate(8deg)}}
+
+.marq{margin:30px 0 10px;background:var(--ink);color:var(--bg);padding:16px 0;overflow:hidden;transform:rotate(-1.5deg)}
+.track{display:flex;gap:42px;width:max-content;animation:slide 22s linear infinite;font-family:'Bricolage Grotesque';font-weight:800;font-size:26px;white-space:nowrap}
+.track span:nth-child(even){color:var(--coral)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:50px 0 0}
+.stats div{background:var(--card);border-radius:22px;padding:20px 16px}
+.stats b{display:block;font-family:'Bricolage Grotesque';font-size:clamp(30px,7vw,56px);letter-spacing:-.04em}
+.stats span{font-size:13px;color:var(--mute)}
+
+section{padding:80px 0 10px}
+h2{font-size:clamp(38px,9vw,84px);font-weight:800;margin-bottom:12px}
+.lead{color:var(--mute);max-width:480px;margin-bottom:30px;font-size:17px}
+
+/* horizontal work rail */
+.rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 18px 24px;margin:0 -18px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.slide{flex:0 0 76%;max-width:360px;scroll-snap-align:center;border-radius:28px;overflow:hidden;background:var(--card);position:relative;aspect-ratio:4/5;transition:transform .4s}
+.slide:hover{transform:translateY(-8px) rotate(-1deg)}
+.slide svg{width:100%;height:100%}
+.slide .cap{position:absolute;left:10px;right:10px;bottom:10px;padding:10px 16px;border-radius:40px;background:rgba(248,247,252,.9);backdrop-filter:blur(10px);font-size:14px;font-weight:500;display:flex;justify-content:space-between}
+.slide small{color:var(--mute)}
+.hint{font-size:13px;color:var(--mute);margin-top:4px}
+
+/* sticky stacking process */
+.stack{margin-top:10px}
+.step{position:sticky;top:calc(84px + var(--i)*16px);border-radius:30px;padding:28px 24px;margin-bottom:22px;min-height:230px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 -10px 30px rgba(21,19,31,.08)}
+.step h3{font-size:clamp(34px,8vw,64px);font-weight:800}
+.step p{max-width:420px;font-size:17px;opacity:.85}
+.step b{font-family:'Bricolage Grotesque';font-size:15px;opacity:.7}
+.s0{background:var(--sun)}.s1{background:var(--coral);color:#fff}.s2{background:var(--blue);color:#fff}.s3{background:var(--ink);color:#fff}
+
+/* services */
+.svc a{display:flex;justify-content:space-between;align-items:center;padding:22px 4px;border-top:1.5px solid var(--ink);transition:padding .3s,color .3s}
+.svc a:last-child{border-bottom:1.5px solid var(--ink)}
+.svc a:hover{padding-left:16px;color:var(--blue)}
+.svc h3{font-size:clamp(26px,6vw,52px);font-weight:800}
+.svc span{font-size:14px;color:var(--mute);max-width:190px;text-align:right}
+
+/* about */
+.about{display:grid;gap:26px;margin-top:20px}
+.about .pic{border-radius:30px;overflow:hidden;aspect-ratio:4/3}
+.about .pic svg{width:100%;height:100%}
+.about p{font-size:19px;color:var(--mute);margin-bottom:14px;max-width:520px}
+@media(min-width:800px){.about{grid-template-columns:1fr 1fr;align-items:center}.slide{flex-basis:340px}}
+
+/* faq */
+details{background:var(--card);border-radius:20px;padding:20px 22px;margin-bottom:10px}
+summary{cursor:pointer;font-family:'Bricolage Grotesque';font-weight:800;font-size:20px;list-style:none;display:flex;justify-content:space-between}
+summary::after{content:"+";font-size:26px;line-height:1;transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin-top:10px;color:var(--mute)}
+
+.contact{margin:80px 0 24px;background:var(--blue);color:#fff;border-radius:34px;padding:54px 24px;text-align:center;position:relative;overflow:hidden}
+.contact:before{content:"";position:absolute;width:300px;height:300px;border-radius:50%;background:var(--coral);filter:blur(80px);opacity:.55;left:-80px;bottom:-120px}
+.contact h2{margin:0 auto 22px;max-width:11ch;position:relative}
+.mail{position:relative;display:inline-block;font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(20px,5vw,40px);border-bottom:3px solid #fff;margin-bottom:26px}
+.contact .btns{justify-content:center}
+.contact .btn{background:#fff;color:var(--ink)}
+.contact .btn.o{background:transparent;color:#fff;border-color:#fff}
+footer{padding:20px 0 110px;text-align:center;color:var(--mute);font-size:13px}
+
+/* floating action buttons */
+.fab{position:fixed;right:16px;bottom:18px;z-index:45;display:flex;flex-direction:column;gap:10px;align-items:center}
+.fab a{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;box-shadow:0 12px 28px rgba(21,19,31,.3);position:relative}
+.fab svg{width:26px;height:26px}
+.wa{background:#25d366}
+.wa:before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #25d366;animation:ping 2s infinite}
+@keyframes ping{to{transform:scale(1.7);opacity:0}}
+.top{background:var(--ink);opacity:0;pointer-events:none;transition:opacity .3s}
+.top.on{opacity:1;pointer-events:auto}
+
+.rv{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+/* ===== v4 extras ===== */
+[data-t="1"]{--bg:#e6efe4;--card:#f6faf4;--blue:#0f7a4d;--coral:#ff7a3d;--sun:#f5d547;--ink:#10211a;--mute:#4d5f55}
+[data-t="2"]{--bg:#12111c;--card:#1d1b2c;--blue:#7c6cff;--coral:#ff6b4a;--sun:#ffd23f;--ink:#f1eee8;--mute:#a9a6bd}
+[data-t="3"]{--bg:#f6e6e9;--card:#fdf4f6;--blue:#d6246e;--coral:#ff8a3d;--sun:#ffd23f;--ink:#2a1018;--mute:#7a5560}
+[data-t="2"] nav{background:rgba(29,27,44,.85);border-color:rgba(255,255,255,.1)}
+[data-t="2"] nav a:hover,[data-t="2"] .btn,[data-t="2"] .top{color:#12111c}
+[data-t="2"] .btn.o{color:var(--ink)}
+[data-t="2"] .s3{color:#12111c}
+[data-t="2"] .slide .cap,[data-t="2"] .tag{background:rgba(29,27,44,.92)}
+[data-t="2"] .top svg{stroke:#12111c}
+body,.stats div,details,.step,nav,.tag{transition:background .5s,color .5s}
+.pre{position:fixed;inset:0;z-index:100;background:#15131f;color:#e9e8f2;display:grid;place-items:center;transition:transform .9s cubic-bezier(.77,0,.18,1)}
+.pre.out{transform:translateY(-100%)}
+.pre b{font-family:'Bricolage Grotesque';font-size:clamp(64px,22vw,170px);letter-spacing:-.05em;display:block;text-align:center;line-height:1}
+.pre span{display:block;text-align:center;opacity:.7;margin-top:10px;font-size:18px}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle 230px at var(--mx,72%) var(--my,28%),rgba(255,255,255,.55),transparent);pointer-events:none}
+#rot{display:inline-block;transition:opacity .25s,transform .25s}
+#rot.hide{opacity:0;transform:translateY(14px)}
+.slide{cursor:zoom-in}
+.ba{position:relative;max-width:440px;aspect-ratio:4/5;border-radius:30px;overflow:hidden;margin-top:6px;box-shadow:0 20px 50px rgba(21,19,31,.18);user-select:none;touch-action:pan-y}
+.ba svg{position:absolute;inset:0;width:100%;height:100%}
+.ba .bf{clip-path:inset(0 calc(100% - var(--p,50%)) 0 0)}
+.ba .ln{position:absolute;top:0;bottom:0;left:var(--p,50%);width:3px;background:#fff;transform:translateX(-50%);pointer-events:none}
+.ba .kn{position:absolute;top:50%;left:var(--p,50%);width:48px;height:48px;border-radius:50%;background:#fff;transform:translate(-50%,-50%);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.3);pointer-events:none;font-weight:800;color:#15131f}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.ba .lb1,.ba .lb2{position:absolute;top:14px;padding:6px 14px;border-radius:30px;font-size:13px;font-weight:500;pointer-events:none}
+.lb1{left:14px;background:#15131f;color:#fff}.lb2{right:14px;background:#fff;color:#15131f}
+.bigband{overflow:hidden;margin:70px 0 0;padding:6px 0}
+.bt{display:inline-block;white-space:nowrap;font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(70px,20vw,200px);letter-spacing:-.04em;color:transparent;-webkit-text-stroke:2px var(--ink);will-change:transform;line-height:1}
+.bt i{font-style:normal;-webkit-text-stroke:0;color:var(--coral)}
+.lbx{position:fixed;inset:0;z-index:90;background:rgba(10,9,20,.88);backdrop-filter:blur(8px);display:none;place-items:center;padding:20px}
+.lbx.on{display:grid}
+.lbx div{width:min(92vw,440px);aspect-ratio:4/5;border-radius:28px;overflow:hidden;animation:pop .35s}
+.lbx svg{width:100%;height:100%}
+@keyframes pop{from{transform:scale(.85);opacity:0}}
+.lbx p{position:absolute;bottom:26px;left:0;right:0;text-align:center;color:#fff;font-size:14px;opacity:.7}
+.toast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,20px);z-index:60;background:var(--ink);color:var(--bg);padding:11px 20px;border-radius:40px;font-size:14px;font-weight:500;opacity:0;pointer-events:none;transition:.4s;white-space:nowrap}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.pal{background:conic-gradient(var(--blue),var(--coral),var(--sun),var(--blue));cursor:pointer;animation:spin 6s linear infinite}
+.pal svg{animation:spin 6s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<div class="pre" id="pre"><div><b id="pc">0</b><span>Badal &middot; Graphic Designer</span></div></div>
+<div id="bar"></div>
+<nav><a href="#work">Work</a><a href="#process">Process</a><a href="#about">About</a><a class="cta" href="#contact">Hire me</a></nav>
+
+<header class="hero">
+  <div class="orb"></div>
+  <div class="fl" data-s=".12" style="top:130px;right:8%"><div class="chip" style="background:var(--sun)"><svg viewBox="0 0 24 24" fill="#15131f"><path d="M12 2l6 9-6 11-6-11z"/><circle cx="12" cy="11" r="1.8" fill="#ffd23f"/></svg></div></div>
+  <div class="fl" data-s=".3" style="top:310px;right:3%"><div class="chip" style="background:var(--coral);animation-delay:-1.5s"><svg viewBox="0 0 24 24" fill="#fff"><path d="M2 2l9 20 3-8 8-3z"/></svg></div></div>
+  <div class="fl" data-s="-.15" style="top:520px;right:18%"><div class="chip" style="background:var(--blue);animation-delay:-3s"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg></div></div>
+  <div class="fl" data-s=".22" style="top:640px;left:6%"><div class="chip" style="background:var(--ink);animation-delay:-2s"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5l12 7-12 7z"/></svg></div></div>
+  <div class="wrap">
+    <span class="tag"><i></i>Available for freelance</span>
+    <h1>Hi, I'm Badal. I design <em id="rot">brands</em> people remember.</h1>
+    <p>Graphic designer and video editor from Greater Noida. Logos, social media creatives, posters and presentations that help businesses grow.</p>
+    <div class="btns"><a class="btn" href="#work">See my work</a><a class="btn o" href="#contact">Let's talk</a></div>
+  </div>
+</header>
+
+<div class="marq"><div class="track">
+  <span>Logo Design</span><span>Branding</span><span>Social Media</span><span>Video Editing</span><span>Posters</span><span>Presentations</span>
+  <span>Logo Design</span><span>Branding</span><span>Social Media</span><span>Video Editing</span><span>Posters</span><span>Presentations</span>
+</div></div>
+
+<div class="wrap">
+  <div class="stats rv">
+    <div><b data-n="50">0</b><span>Designs delivered</span></div>
+    <div><b data-n="20">0</b><span>Happy clients</span></div>
+    <div><b data-n="3">0</b><span>Years creating</span></div>
+  </div>
+
+  <section id="work">
+    <h2 class="rv">Selected work</h2>
+    <p class="lead rv">Swipe sideways to browse. Tap any design to enlarge it.</p>
+    <div class="rail">
+      <div class="slide"><svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" font-family="Bricolage Grotesque,sans-serif" font-weight="800"><rect width="400" height="500" fill="#3b2418"/><circle cx="200" cy="200" r="130" fill="#f1e3c8"/><circle cx="200" cy="200" r="112" fill="none" stroke="#3b2418" stroke-width="3"/><path d="M140 170h120v60a60 60 0 01-120 0z" fill="#3b2418"/><path d="M260 185h18a22 22 0 010 44h-18" fill="none" stroke="#3b2418" stroke-width="10"/><path d="M170 150c-10-18 10-22 0-40M200 150c-10-18 10-22 0-40M230 150c-10-18 10-22 0-40" stroke="#c9822b" stroke-width="6" fill="none" stroke-linecap="round"/><text x="200" y="395" text-anchor="middle" font-size="58" fill="#f1e3c8">EMBER</text><text x="200" y="425" text-anchor="middle" font-size="14" fill="#c9822b" font-weight="500" letter-spacing="6">COFFEE ROASTERS</text></svg><div class="cap">Coffee Brand <small>Logo</small></div></div>
+
+      <div class="slide"><svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" font-family="Bricolage Grotesque,sans-serif" font-weight="800"><rect width="400" height="500" fill="#15131f"/><rect x="-40" y="60" width="500" height="70" fill="#ff5a36" transform="rotate(-20 200 250)"/><rect x="-40" y="150" width="500" height="26" fill="#ffd23f" transform="rotate(-20 200 250)"/><text x="30" y="330" font-size="120" fill="#fff">PUSH</text><text x="30" y="400" font-size="40" fill="#ff5a36">BEYOND</text><text x="30" y="440" font-size="40" fill="#ffd23f">LIMITS</text></svg><div class="cap">Fitness Poster <small>Print</small></div></div>
+
+      <div class="slide"><svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" font-family="Bricolage Grotesque,sans-serif" font-weight="800"><rect width="400" height="500" fill="#dcd9ee"/><rect x="30" y="90" width="190" height="240" rx="22" fill="#3b2bff" transform="rotate(-8 125 210)"/><rect x="110" y="120" width="190" height="240" rx="22" fill="#ff5a36" transform="rotate(2 205 240)"/><rect x="190" y="150" width="190" height="240" rx="22" fill="#ffd23f" transform="rotate(10 285 270)"/><text x="215" y="260" font-size="44" fill="#15131f" transform="rotate(10 285 270)">Tip 3</text><text x="215" y="300" font-size="16" fill="#15131f" font-weight="500" transform="rotate(10 285 270)">Swipe for more</text><text x="30" y="450" font-size="34" fill="#15131f">Carousel Posts</text></svg><div class="cap">Instagram Carousel <small>Social</small></div></div>
+
+      <div class="slide"><svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" font-family="Bricolage Grotesque,sans-serif" font-weight="800"><rect width="400" height="500" fill="#3b2bff"/><circle cx="200" cy="210" r="150" fill="#15131f"/><g fill="none" stroke="#3b2bff" stroke-opacity=".5"><circle cx="200" cy="210" r="132"/><circle cx="200" cy="210" r="112"/><circle cx="200" cy="210" r="92"/></g><circle cx="200" cy="210" r="52" fill="#ff5a36"/><circle cx="200" cy="210" r="8" fill="#15131f"/><text x="200" y="420" text-anchor="middle" font-size="52" fill="#fff">MIDNIGHT</text><text x="200" y="450" text-anchor="middle" font-size="16" fill="#ffd23f" font-weight="500" letter-spacing="6">VOL. 2 · ALBUM ART</text></svg><div class="cap">Album Cover <small>Music</small></div></div>
+
+      <div class="slide"><svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" font-family="Bricolage Grotesque,sans-serif" font-weight="800"><rect width="400" height="500" fill="#ffd23f"/><rect x="110" y="50" width="180" height="370" rx="30" fill="#15131f"/><rect x="120" y="62" width="160" height="346" rx="22" fill="#f8f7fc"/><rect x="132" y="80" width="90" height="14" rx="7" fill="#15131f"/><rect x="132" y="110" width="136" height="74" rx="14" fill="#3b2bff"/><circle cx="160" cy="147" r="16" fill="#ffd23f"/><rect x="132" y="198" width="64" height="64" rx="14" fill="#ff5a36"/><rect x="204" y="198" width="64" height="64" rx="14" fill="#15131f"/><rect x="132" y="276" width="136" height="12" rx="6" fill="#dcd9ee"/><rect x="132" y="298" width="100" height="12" rx="6" fill="#dcd9ee"/><rect x="132" y="350" width="136" height="38" rx="19" fill="#15131f"/><text x="200" y="468" text-anchor="middle" font-size="30" fill="#15131f">App UI Design</text></svg><div class="cap">Mobile App UI <small>Interface</small></div></div>
+
+      <div class="slide"><svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" font-family="Bricolage Grotesque,sans-serif" font-weight="800"><rect width="400" height="500" fill="#1b1140"/><circle cx="200" cy="190" r="150" fill="#ffd23f" opacity=".16"/><circle cx="200" cy="190" r="105" fill="#ffd23f" opacity=".3"/><circle cx="200" cy="190" r="62" fill="#ffd23f"/><text x="200" y="205" text-anchor="middle" font-size="44" fill="#1b1140">60%</text><text x="200" y="370" text-anchor="middle" font-size="64" fill="#fff">FESTIVE</text><text x="200" y="425" text-anchor="middle" font-size="64" fill="#ff5a36">SALE</text><text x="200" y="458" text-anchor="middle" font-size="15" fill="#ffd23f" font-weight="500" letter-spacing="5">UP TO 60% OFF</text></svg><div class="cap">Sale Banner <small>Ads</small></div></div>
+    </div>
+  </section>
+
+
+  <section id="beforeafter">
+    <h2 class="rv">Before and after</h2>
+    <p class="lead rv">Drag the slider to see what good design changes.</p>
+    <div class="ba rv" id="ba">
+      <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" font-family="Bricolage Grotesque,sans-serif" font-weight="800"><rect width="400" height="500" fill="#1b1140"/><circle cx="200" cy="190" r="150" fill="#ff5a36" opacity=".25"/><circl
