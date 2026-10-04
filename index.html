@@ -114,7 +114,7 @@ footer{padding:20px 0 110px;text-align:center;color:var(--mute);font-size:13px}
 .rv{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
 .rv.in{opacity:1;transform:none}
 :focus-visible{outline:3px solid var(--coral);outline-offset:3px}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.pre{display:none}*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 
 /* ===== v4 extras ===== */
 [data-t="1"]{--bg:#e6efe4;--card:#f6faf4;--blue:#0f7a4d;--coral:#ff7a3d;--sun:#f5d547;--ink:#10211a;--mute:#4d5f55}
@@ -129,6 +129,8 @@ footer{padding:20px 0 110px;text-align:center;color:var(--mute);font-size:13px}
 body,.stats div,details,.step,nav,.tag{transition:background .5s,color .5s}
 .pre{position:fixed;inset:0;z-index:100;background:#15131f;color:#e9e8f2;display:grid;place-items:center;transition:transform .9s cubic-bezier(.77,0,.18,1)}
 .pre.out{transform:translateY(-100%)}
+.pre{animation:preOut .5s 3.4s forwards}
+@keyframes preOut{to{opacity:0;visibility:hidden}}
 .pre b{font-family:'Bricolage Grotesque';font-size:clamp(64px,22vw,170px);letter-spacing:-.05em;display:block;text-align:center;line-height:1}
 .pre span{display:block;text-align:center;opacity:.7;margin-top:10px;font-size:18px}
 .hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle 230px at var(--mx,72%) var(--my,28%),rgba(255,255,255,.55),transparent);pointer-events:none}
@@ -161,6 +163,12 @@ body,.stats div,details,.step,nav,.tag{transition:background .5s,color .5s}
 </head>
 <body>
 <div class="pre" id="pre"><div><b id="pc">0</b><span>Badal &middot; Graphic Designer</span></div></div>
+<script>
+(function(){var p=document.getElementById('pre'),c=document.getElementById('pc'),v=0,done=0;
+function out(){if(done)return;done=1;p.classList.add('out');setTimeout(function(){p.style.display='none';if(typeof say=='function')say('Tap the colour button to change the vibe',3200)},1000)}
+var t=setInterval(function(){v+=5;if(v>=100){v=100;clearInterval(t);setTimeout(out,200)}c.textContent=v},40);
+setTimeout(out,2500);})();
+</script>
 <div id="bar"></div>
 <nav><a href="#work">Work</a><a href="#process">Process</a><a href="#about">About</a><a class="cta" href="#contact">Hire me</a></nav>
 
@@ -213,4 +221,117 @@ body,.stats div,details,.step,nav,.tag{transition:background .5s,color .5s}
     <h2 class="rv">Before and after</h2>
     <p class="lead rv">Drag the slider to see what good design changes.</p>
     <div class="ba rv" id="ba">
-      <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" font-family="Bricolage Grotesque,sans-serif" font-weight="800"><rect width="400" height="500" fill="#1b1140"/><circle cx="200" cy="190" r="150" fill="#ff5a36" opacity=".25"/><circl
+      <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" font-family="Bricolage Grotesque,sans-serif" font-weight="800"><rect width="400" height="500" fill="#1b1140"/><circle cx="200" cy="190" r="150" fill="#ff5a36" opacity=".25"/><circle cx="200" cy="190" r="100" fill="#ffd23f"/><path d="M-20 420q120-90 240 0t240 0V520H-20z" fill="#3b2bff"/><text x="200" y="215" text-anchor="middle" font-size="60" fill="#1b1140">SALE</text><text x="200" y="355" text-anchor="middle" font-size="58" fill="#fff">SUMMER</text><text x="200" y="465" text-anchor="middle" font-size="18" fill="#fff" font-weight="500" letter-spacing="4">UP TO 50% OFF</text></svg>
+      <svg class="bf" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" font-family="Arial,sans-serif"><rect width="400" height="500" fill="#d9d9d9"/><rect x="60" y="60" width="280" height="150" fill="#bdbdbd"/><text x="200" y="260" text-anchor="middle" font-size="40" fill="#222" font-weight="700">Summer Sale</text><text x="200" y="300" text-anchor="middle" font-size="22" fill="#333">Up to 50% off</text><text x="200" y="335" text-anchor="middle" font-size="18" fill="#444">Visit our store today</text><text x="200" y="370" text-anchor="middle" font-size="14" fill="#555">Terms and conditions apply</text></svg>
+      <span class="lb1">Before</span><span class="lb2">After</span>
+      <div class="ln"></div><div class="kn">&harr;</div>
+      <input type="range" min="0" max="100" value="50" id="bar2" aria-label="Before and after slider">
+    </div>
+  </section>
+
+  <section id="process">
+    <h2 class="rv">How I work</h2>
+    <p class="lead rv">Four simple steps from idea to final files.</p>
+    <div class="stack">
+      <div class="step s0" style="--i:0"><b>Step 1</b><div><h3>Brief</h3><p>You tell me your idea, audience and style. I ask the right questions.</p></div></div>
+      <div class="step s1" style="--i:1"><b>Step 2</b><div><h3>Concept</h3><p>I sketch 2 to 3 directions so you can pick what feels right.</p></div></div>
+      <div class="step s2" style="--i:2"><b>Step 3</b><div><h3>Design</h3><p>I polish the chosen direction with your feedback until it is perfect.</p></div></div>
+      <div class="step s3" style="--i:3"><b>Step 4</b><div><h3>Deliver</h3><p>You get all final files, ready for print and social media.</p></div></div>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2 class="rv">What I do</h2>
+    <div class="svc rv">
+      <a href="#contact"><h3>Branding</h3><span>Logos and complete visual identity</span></a>
+      <a href="#contact"><h3>Social media</h3><span>Posts, stories and reel covers</span></a>
+      <a href="#contact"><h3>Video editing</h3><span>Reels and promo videos</span></a>
+      <a href="#contact"><h3>Presentations</h3><span>Pitch decks and reports</span></a>
+    </div>
+  </section>
+
+</div>
+<div class="bigband"><div class="bt" id="bt">CREATE <i>&bull;</i> DESIGN <i>&bull;</i> REPEAT <i>&bull;</i> CREATE <i>&bull;</i> DESIGN <i>&bull;</i> REPEAT</div></div>
+<div class="wrap">
+  <section id="about">
+    <h2 class="rv">About me</h2>
+    <div class="about rv">
+      <div class="pic"><svg viewBox="0 0 450 340" preserveAspectRatio="xMidYMid slice" font-family="Bricolage Grotesque,sans-serif" font-weight="800"><defs><linearGradient id="ga" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff5a36"/><stop offset="1" stop-color="#3b2bff"/></linearGradient></defs><rect width="450" height="340" fill="url(#ga)"/><circle cx="360" cy="60" r="70" fill="#ffd23f" opacity=".9"/><rect x="60" y="70" width="190" height="190" rx="40" fill="#15131f" transform="rotate(-6 155 165)"/><text x="155" y="215" text-anchor="middle" font-size="130" fill="#f8f7fc" transform="rotate(-6 155 165)">B</text><rect x="260" y="180" width="130" height="16" rx="8" fill="#fff"/><rect x="260" y="210" width="95" height="16" rx="8" fill="#fff" opacity=".7"/><rect x="260" y="240" width="115" height="16" rx="8" fill="#fff" opacity=".5"/></svg></div>
+      <div>
+        <p>I'm a BBA Finance student who fell for design. That mix means I understand both how a brand should look and how it should sell.</p>
+        <p>I'm taking freelance projects and internships in design and digital marketing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2 class="rv">Questions</h2>
+    <div class="rv">
+      <details><summary>How long does a project take?</summary><p>A logo usually takes 3 to 5 days. Social media posts can be ready in 1 to 2 days.</p></details>
+      <details><summary>Can I ask for changes?</summary><p>Yes. Every project includes revisions until you are happy.</p></details>
+      <details><summary>What files will I get?</summary><p>PNG, JPG and PDF files, plus source files if you need them.</p></details>
+    </div>
+  </section>
+
+  <div class="contact rv" id="contact">
+    <h2>Have a project in mind?</h2>
+    <a class="mail" href="mailto:badalkumar160305@gmail.com">badalkumar160305@gmail.com</a>
+    <div class="btns"><a class="btn" href="https://wa.me/910000000000">WhatsApp</a><a class="btn o" href="https://instagram.com/yourhandle">Instagram</a></div>
+  </div>
+  <footer>&copy; 2026 Badal. Designed in Greater Noida.</footer>
+</div>
+
+<div class="lbx" id="lbx"><div id="lbd"></div><p>Tap anywhere to close</p></div>
+<div class="toast" id="toast"></div>
+<div class="fab">
+  <a class="top" id="top" href="#" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>
+  <a class="pal" id="pal" role="button" aria-label="Change colour theme"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg></a>
+  <a class="wa" href="https://wa.me/910000000000" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.2 14c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg></a>
+</div>
+
+<script>
+const bar=document.getElementById('bar'),top_=document.getElementById('top'),fls=document.querySelectorAll('.fl');
+function onScroll(){
+  const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;
+  bar.style.width=(y/h*100)+'%';
+  top_.classList.toggle('on',y>500);
+  fls.forEach(f=>f.style.transform='translateY('+(y*f.dataset.s)+'px)');
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;
+  e.target.classList.add('in');
+  e.target.querySelectorAll('[data-n]').forEach(c=>{
+    const n=+c.dataset.n;let i=0;
+    const t=setInterval(()=>{i++;c.textContent=i+(n==3?' yrs':'+');if(i>=n)clearInterval(t)},Math.max(20,1200/n));
+  });
+  io.unobserve(e.target);
+}),{threshold:.2});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* ===== v4 extras ===== */
+const root=document.documentElement,toast=document.getElementById('toast');
+function say(t,ms){toast.textContent=t;toast.classList.add('on');clearTimeout(say.t);say.t=setTimeout(()=>toast.classList.remove('on'),ms||1800)}
+// rotating word
+const rot=document.getElementById('rot'),words=['brands','posters','reels','logos'];let wi=0;
+setInterval(()=>{rot.classList.add('hide');setTimeout(()=>{wi=(wi+1)%words.length;rot.textContent=words[wi];rot.classList.remove('hide')},260)},2400);
+// hero spotlight
+const hero=document.querySelector('.hero');
+function spot(e){const p=e.touches?e.touches[0]:e,r=hero.getBoundingClientRect();hero.style.setProperty('--mx',(p.clientX-r.left)+'px');hero.style.setProperty('--my',(p.clientY-r.top)+'px')}
+hero.addEventListener('pointermove',spot);hero.addEventListener('touchmove',spot,{passive:true});
+// before / after
+const ba=document.getElementById('ba');
+document.getElementById('bar2').addEventListener('input',e=>ba.style.setProperty('--p',e.target.value+'%'));
+// big scrolling text
+const bt=document.getElementById('bt');
+addEventListener('scroll',()=>{const r=bt.parentNode.getBoundingClientRect();bt.style.transform='translateX('+(r.top*.8-200)+'px)'},{passive:true});
+// lightbox
+const lbx=document.getElementById('lbx'),lbd=document.getElementById('lbd');
+document.querySelectorAll('.slide').forEach(s=>s.addEventListener('click',()=>{lbd.innerHTML=s.querySelector('svg').outerHTML;lbx.classList.add('on')}));
+lbx.addEventListener('click',()=>lbx.classList.remove('on'));
+// theme switcher
+const names=['Electric','Forest','Midnight','Rose'];let ti=0;
+document.getElementById('pal').addEventListener('click',()=>{ti=(ti+1)%4;root.setAttribute('data-t',ti);say('Theme: '+names[ti])});
+</script>
+</body>
+</html>
